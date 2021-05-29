@@ -18,12 +18,12 @@ app.get('/', (req, res) => {
   // this will disable search template
   app.locals.partials.isOnSearched = false
   app.locals.partials.restaurantList = restaurants.results;
-  res.render(`index`, { style: 'main.css' })
+  return res.render(`index`, { style: 'main.css' })
 })
 
 app.get('/restaurants/:restaurant_id', (req, res) => {
   const restaurant = restaurants.results.find(item => item.id.toString() === req.params.restaurant_id)
-  res.render(`show`, { restaurant, style: 'show.css' })
+  return res.render(`show`, { restaurant, style: 'show.css' })
 })
 
 app.get('/search', (req, res) => {
@@ -36,8 +36,7 @@ app.get('/search', (req, res) => {
   // show search information - remind user enter something and return function, no view action done
   if (!keyword.length) {
     app.locals.partials.isSearchInputValid = false
-    res.render(`index`, { style: 'main.css' })
-    return
+    return res.render(`index`, { style: 'main.css' })
   }
   const filteredRestaurants = restaurants.results.filter(restaurant => {
     // search by name and category, non case sensitive
@@ -47,7 +46,7 @@ app.get('/search', (req, res) => {
   app.locals.partials.isSearchInputValid = true
   app.locals.partials.restaurantList = filteredRestaurants;
   app.locals.partials.numberOfListedRestaurants = filteredRestaurants.length;
-  res.render(`index`, { keyword: req.query.keyword, style: 'main.css' })
+  return res.render(`index`, { keyword: req.query.keyword, style: 'main.css' })
 })
 
 app.listen(port, () => {

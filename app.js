@@ -32,15 +32,16 @@ app.get('/search', (req, res) => {
   }
   // this will trigger search template to show search related information on page
   app.locals.partials.isOnSearched = true
+  const keyword = req.query.keyword.trim().toLowerCase()
   // show search information - remind user enter something and return function, no view action done
-  if (!req.query.keyword.trim().length) {
+  if (!keyword.length) {
     app.locals.partials.isSearchInputValid = false
     res.render(`index`, { style: 'main.css' })
     return
   }
   const filteredRestaurants = restaurants.results.filter(restaurant => {
     // search by name and category, non case sensitive
-    return restaurant.name.trim().toLowerCase().includes(req.query.keyword.trim().toLowerCase()) || restaurant.category.trim().toLowerCase().includes(req.query.keyword.trim().toLowerCase())
+    return restaurant.name.trim().toLowerCase().includes(keyword) || restaurant.category.trim().toLowerCase().includes(keyword)
   })
   // show search information - number of search resutls, view action - rendering filtered restaurants
   app.locals.partials.isSearchInputValid = true

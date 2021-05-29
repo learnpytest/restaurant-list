@@ -1,0 +1,25 @@
+{{!-- 從restaurantList陣列運用迴圈產生restaurants --}}
+{{#each partials.restaurantList}}
+<a href="/restaurants/{{id}}"
+   class="text-secondary">
+  <div class="card mb-3">
+    <img class="card-img-top"
+         src={{image}}
+         alt={{name}}>
+    <div class="card-body p-3">
+      <h6 class="card-title mb-1">{{name}}</h6>
+
+      <div class="restaurant-category mb-1">
+        <i class="fas fa-utensils pr-2"
+           style="font-size: 25px;"></i> {{category}}
+      </div>
+
+      <span class="badge badge-pill badge-danger font-weight-normal">
+        {{rating}}
+        <i class="fas fa-star fa-xs"></i>
+      </span>
+
+    </div>
+  </div>
+</a>
+{{/each}}

@@ -1,0 +1,9 @@
+{{!-- show search information --}}
+{{#if partials.isSearchInputValid}}
+<p class="text-success">
+  <span style="color:brown;"> {{partials.numberOfListedRestaurants}} </span> search results with the
+  keyword: <em style="color:brown;">"{{keyword}}"</em>
+</p>
+{{else}}
+<small class="text-danger">Please enter at least one keyword to search name or category</small>
+{{/if}}

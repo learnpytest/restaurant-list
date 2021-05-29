@@ -1,0 +1,104 @@
+/* 新增 */
+body {
+  background-color: #fce2cf;
+}
+
+header {
+  overflow: hidden;
+}
+
+.navbar .navbar-brand {
+  /* color: #4592af; */
+  color: #226089;
+}
+
+.navbar .navbar-brand:hover {
+  /* color: #226089; */
+  color: #9b4b4b;
+}
+
+.banner {
+  position: relative;
+  z-index: -1;
+  margin: -5px;
+  height: 360px;
+  background: #dddddd center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
+  background-size: cover;
+  filter: blur(3px);
+}
+
+.search-bar .search-bar-outer {
+  margin: 0 auto;
+  max-width: 680px;
+  /* background-color: #fce2cf; */
+  background-color: #e3f2fd;
+  border-radius: 8px;
+  padding: 20px 30px;
+  border: 0;
+  margin-top: -60px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar .search-bar-inner h4 {
+  /* color: #9b4b4b; */
+  color: #087199;
+}
+
+.form-control::placeholder {
+  color: #aaaaaa;
+  font-size: 0.8rem;
+}
+
+.btn-major {
+  /* background-color: #9b4b4b; */
+   background-color: #087199;
+  color: white;
+}
+/* 新增 */
+.btn-major:hover {
+  /* color: #226089; */
+  background-color: #9b4b4b;
+ color: white;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ced4da;
+}
+
+.card {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img{
+  height: 180px;
+}
+
+.card-title{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.restaurant-category {
+  color: #666666;
+  font-size: 0.8rem;
+}
+
+
+
+@media screen and (max-width: 992px) {
+  
+  .card img{
+    height: 115px;
+  }
+}
+
+
+@media screen and (max-width: 575px) {
+  
+  .card img{
+    height: auto;
+  }
+  
+}

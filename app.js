@@ -11,7 +11,7 @@ app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
 // routes settings
-app.get('/restaurants', (req, res) => {
+app.get('/', (req, res) => {
   if (!app.locals.partials) {
     app.locals.partials = {};
   }

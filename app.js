@@ -16,8 +16,10 @@ app.get('/', (req, res) => {
     app.locals.partials = {};
   }
   // this will disable search template
-  app.locals.partials.isOnSearched = false
-  app.locals.partials.restaurantList = restaurants.results;
+  app.locals.partials = {
+    isOnSearched: false,
+    restaurantList: restaurants.results,
+  }
   return res.render(`index`, { style: 'main.css' })
 })
 
@@ -46,7 +48,7 @@ app.get('/search', (req, res) => {
   app.locals.partials.isSearchInputValid = true
   app.locals.partials.restaurantList = filteredRestaurants;
   app.locals.partials.numberOfListedRestaurants = filteredRestaurants.length;
-  return res.render(`index`, { keyword: req.query.keyword, style: 'main.css' })
+  return res.render(`index`, { keyword, style: 'main.css' })
 })
 
 app.listen(port, () => {
